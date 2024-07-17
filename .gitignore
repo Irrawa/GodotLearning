@@ -1,15 +1,51 @@
-# Godot 4+ specific ignores
-.godot/
+# Dependency directories
+node_modules/
+packages/
 
-# Godot-specific ignores
-.import/
-export.cfg
-export_presets.cfg
+# IDE and editor folders
+.vscode/
+.idea/
+*.sublime-*
 
-# Imported translations (automatically generated from CSV files)
-*.translation
+# Operating system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.Spotlight-V100
+.Trashes
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# Build outputs
+build/
+bin/
+out/
+*.log
+
+# Ignore temp files and folders
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# Texture, sprite, and model files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.obj
+*.fbx
+*.dae
+*.3ds
+*.psd
+*.ai
+
+# Version Control System directories
+.svn/
+CVS/
+
+# Ignore files and folders that start with a dot, except for some important ones
+.*
+!.gitignore
+!.gitattributes
