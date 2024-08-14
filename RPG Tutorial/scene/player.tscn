@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dvxymwl6aq5np"]
+[gd_scene load_steps=58 format=3 uid="uid://dvxymwl6aq5np"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2tp0c"]
 [ext_resource type="Texture2D" uid="uid://7iuu4jxxor11" path="res://art/mystic_woods_free_2/sprites/characters/player.png" id="1_g11qn"]
@@ -417,8 +417,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ol2s"]
-radius = 7.07102
-height = 20.0
+radius = 15.1325
+height = 34.2269
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5b1f6"]
+radius = 12.0
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 3
@@ -433,11 +436,19 @@ shape = SubResource("CircleShape2D_6dsn2")
 position = Vector2(-1, -17)
 sprite_frames = SubResource("SpriteFrames_34400")
 animation = &"front_attack"
-frame_progress = 0.532919
 
 [node name="attack_zone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_zone"]
-position = Vector2(2, 2)
+position = Vector2(1, 4)
 rotation = 1.43264
 shape = SubResource("CapsuleShape2D_3ol2s")
+
+[node name="touch_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="touch_zone"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_5b1f6")
+
+[connection signal="body_entered" from="attack_zone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="attack_zone" to="." method="_on_attack_zone_body_exited"]

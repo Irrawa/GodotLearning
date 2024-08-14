@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 20
+var SPEED = 20
 var wander_timer = 0
 var idle_timer = randf_range(1, 2)
 var is_player_near = false
@@ -8,6 +8,11 @@ var player_body = null
 var is_moving = false
 var is_idle = true
 var face_dir = 2
+
+var is_dying = false
+var dying_timer = 0
+
+var health = 300
 
 @onready
 var detection_area = $detection_area
@@ -23,9 +28,16 @@ func _physics_process(delta):
 
 	# Handle movement and detection.
 	handle_movement(delta)
+	handle_death(delta)
 	move_and_slide()
 	play_animation()
 	
+
+func handle_death(delta):
+	if is_dying:
+		dying_timer += delta
+	if dying_timer > 2:
+		queue_free()
 
 func handle_movement(delta):
 	# Check for player in detection area and set movement.
@@ -84,34 +96,42 @@ func update_direction(v):
 		return
 	elif v.x < 0 and abs(v.x) > abs(v.y):
 		face_dir = 3
-		
 
 func play_animation():
-	if face_dir == 0:
-		animation_player.set_flip_h(false)
-		if is_idle:
-			animation_player.play("back_idle")
-		elif is_moving:
-			animation_player.play("back_walk")
-	elif face_dir == 1:
-		animation_player.set_flip_h(false)
-		if is_idle:
-			animation_player.play("side_idle")
-		elif is_moving:
-			animation_player.play("side_walk")
-	elif face_dir == 2:
-		animation_player.set_flip_h(false)
-		if is_idle:
-			animation_player.play("front_idle")
-		elif is_moving:
-			animation_player.play("front_walk")
-	elif face_dir == 3:
-		animation_player.set_flip_h(true)
-		if is_idle:
-			animation_player.play("side_idle")
-		elif is_moving:
-			animation_player.play("side_walk")
-		
+	if is_dying:
+		SPEED = 0
+		animation_player.play("death")
+	else:
+		if face_dir == 0:
+			animation_player.set_flip_h(false)
+			if is_idle:
+				animation_player.play("back_idle")
+			elif is_moving:
+				animation_player.play("back_walk")
+		elif face_dir == 1:
+			animation_player.set_flip_h(false)
+			if is_idle:
+				animation_player.play("side_idle")
+			elif is_moving:
+				animation_player.play("side_walk")
+		elif face_dir == 2:
+			animation_player.set_flip_h(false)
+			if is_idle:
+				animation_player.play("front_idle")
+			elif is_moving:
+				animation_player.play("front_walk")
+		elif face_dir == 3:
+			animation_player.set_flip_h(true)
+			if is_idle:
+				animation_player.play("side_idle")
+			elif is_moving:
+				animation_player.play("side_walk")
+			
+func take_damage(player_attack_num):
+	health -= player_attack_num
+	if health <= 0:
+		is_dying = true
+		SPEED = 0
 
 # Signal connections from the detection area to detect the player.
 func _on_detection_area_body_entered(body):
@@ -122,4 +142,6 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if "player" in body.name.to_lower():
 		is_player_near = false
+		
+
 	

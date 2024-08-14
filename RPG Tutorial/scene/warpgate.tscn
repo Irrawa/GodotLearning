@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1l3wmrsfv6wh"]
+
+[ext_resource type="Texture2D" uid="uid://dc1t0mmiyvhof" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/props_itens/chest_open.png" id="1_0drq3"]
+[ext_resource type="Script" path="res://scripts/warpgate.gd" id="1_sdh7r"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jdgxl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jt1ke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4yjk"]
+radius = 9.0
+
+[node name="Warpgate" type="Node2D"]
+script = ExtResource("1_sdh7r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_jdgxl")
+texture = ExtResource("1_0drq3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jt1ke")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_a4yjk")

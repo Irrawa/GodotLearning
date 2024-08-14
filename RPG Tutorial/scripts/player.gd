@@ -9,43 +9,62 @@ var is_attacking = false
 var damage_begin_time = 0
 var damage_end_time = 0
 
+var attack_effect_time = 0.5
+var attack_time_left = 0
+
+var player_attack_num = 5
+
+var enemy_in_damage_zone = []
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	set_damaging_timing("front_attack", 1, 2)
 
 func _physics_process(delta):
-	player_attack()
+	player_attack(delta)
+	player_interact(delta)
+	inflict_enemy_damage(delta)
 	player_movement(delta)
 	play_anim(is_moving, is_attacking)
 	
 func player_movement(delta):
 	
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = speed * delta
-		velocity.y = 0
-		is_moving = true
-		face_dir = 1
-	elif Input.is_action_pressed("ui_left"):
-		velocity.x = -speed * delta
-		velocity.y = 0
-		is_moving = true
-		face_dir = 3
-	elif Input.is_action_pressed("ui_down"):
-		velocity.x = 0
-		velocity.y = speed * delta
-		is_moving = true
-		face_dir = 2
-	elif Input.is_action_pressed("ui_up"):
-		velocity.x = 0
-		velocity.y = -speed * delta
-		is_moving = true
-		face_dir = 0
+	if not is_attacking:
+		if Input.is_action_pressed("ui_right"):
+			velocity.x = speed * delta
+			velocity.y = 0
+			is_moving = true
+			face_dir = 1
+		elif Input.is_action_pressed("ui_left"):
+			velocity.x = -speed * delta
+			velocity.y = 0
+			is_moving = true
+			face_dir = 3
+		elif Input.is_action_pressed("ui_down"):
+			velocity.x = 0
+			velocity.y = speed * delta
+			is_moving = true
+			face_dir = 2
+		elif Input.is_action_pressed("ui_up"):
+			velocity.x = 0
+			velocity.y = -speed * delta
+			is_moving = true
+			face_dir = 0
+		else:
+			velocity.x = 0
+			velocity.y = 0
+			is_moving = false
 	else:
 		velocity.x = 0
 		velocity.y = 0
 		is_moving = false
 	move_and_slide()
-	
+
+func inflict_enemy_damage(delta):
+	if is_attacking:
+		for body in enemy_in_damage_zone:
+			body.take_damage(player_attack_num)
+
 func get_anim_absolute_duration(anim_name, frame_idx):
 	var sprite_frames = $AnimatedSprite2D.sprite_frames
 	var anim_fps = sprite_frames.get_animation_speed(anim_name)
@@ -65,13 +84,27 @@ func set_damaging_timing(damage_anim_name, damage_begin_idx, damage_end_idx):
 		damage_end_time += get_anim_absolute_duration(damage_anim_name, i)
 	
 	
-func player_attack():
+func player_attack(delta):
 	if Input.is_action_pressed("character_attack"):
+		attack_time_left = attack_effect_time
+	else:
+		if attack_effect_time > 0:
+			attack_time_left -= delta
+	if attack_time_left > 0:
 		is_attacking = true
-		print(damage_begin_time, damage_end_time)
 	else:
 		is_attacking = false
-	
+		
+func player_interact(delta):
+	if Input.is_action_pressed("character_interact"):
+		# Get all bodies that are overlapping with the "touch_zone" Area2D
+		var overlapping_bodies = $touch_zone.get_overlapping_bodies()
+		# Iterate through all overlapping bodies
+		for body in overlapping_bodies:
+			# Check if the body has the function "interact_with_player"
+			if body.has_method("interact_with_player"):
+				# Call the "interact_with_player" function on the body
+				body.interact_with_player(self)
 	
 func play_anim(is_moving, is_attacking):
 	var anim_player = $AnimatedSprite2D
@@ -111,8 +144,12 @@ func play_anim(is_moving, is_attacking):
 				anim_player.play("side_walk")
 			else:
 				anim_player.play("side_idle")
-			
 
-		
-	
-	
+func _on_attack_zone_body_entered(body):
+	if "enemy" in body.name.to_lower():
+		enemy_in_damage_zone.append(body)
+
+func _on_attack_zone_body_exited(body):
+	if "enemy" in body.name.to_lower():
+		enemy_in_damage_zone.erase(body)
+
