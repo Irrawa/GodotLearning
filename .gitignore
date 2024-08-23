@@ -27,20 +27,6 @@ temp/
 *.bak
 *.swp
 
-# Texture, sprite, and model files
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.bmp
-*.tiff
-*.obj
-*.fbx
-*.dae
-*.3ds
-*.psd
-*.ai
-
 # Version Control System directories
 .svn/
 CVS/
