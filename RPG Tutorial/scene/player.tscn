@@ -424,18 +424,18 @@ height = 26.5786
 radius = 12.0
 
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_2tp0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_6dsn2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -17)
 sprite_frames = SubResource("SpriteFrames_34400")
 animation = &"front_attack"
+offset = Vector2(0, -16.65)
 
 [node name="attack_zone" type="Area2D" parent="."]
 
@@ -445,7 +445,6 @@ rotation = 1.43264
 shape = SubResource("CapsuleShape2D_3ol2s")
 
 [node name="touch_zone" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="touch_zone"]
 position = Vector2(0, 6)
