@@ -75,13 +75,11 @@ func wander(delta):
 		return
 
 func chase_player(delta):
-	var direction = (player_body.position - position).normalized()
-	if (player_body.position - position).x ** 2 + (player_body.position - position).y ** 2 < 300:
-		velocity.x = 0
-		velocity.y = 0
+	var direction = (player_body.global_position - global_position).normalized()
+	if (player_body.global_position - global_position).length_squared() < 300:
+		velocity = Vector2.ZERO
 	else:
-		velocity.x = direction.x * SPEED
-		velocity.y = direction.y * SPEED
+		velocity = direction * SPEED
 		update_direction(velocity)
 	
 func update_direction(v):
@@ -132,6 +130,9 @@ func take_damage(player_attack_num):
 	if health <= 0:
 		is_dying = true
 		SPEED = 0
+
+func be_an_enemy():
+	pass
 
 # Signal connections from the detection area to detect the player.
 func _on_detection_area_body_entered(body):

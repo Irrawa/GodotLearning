@@ -14,6 +14,9 @@ var attack_time_left = 0
 
 var player_attack_num = 5
 
+var interact_cd = 0.3
+var interact_cd_left = interact_cd
+
 var enemy_in_damage_zone = []
 
 func _ready():
@@ -64,6 +67,7 @@ func inflict_enemy_damage(delta):
 	if is_attacking:
 		for body in enemy_in_damage_zone:
 			body.take_damage(player_attack_num)
+		print(len(enemy_in_damage_zone))
 
 func get_anim_absolute_duration(anim_name, frame_idx):
 	var sprite_frames = $AnimatedSprite2D.sprite_frames
@@ -96,7 +100,9 @@ func player_attack(delta):
 		is_attacking = false
 		
 func player_interact(delta):
-	if Input.is_action_pressed("character_interact"):
+	if interact_cd_left > 0:
+		interact_cd_left -= delta
+	if Input.is_action_pressed("character_interact") and interact_cd_left <= 0:
 		# Get all bodies that are overlapping with the "touch_zone" Area2D
 		var overlapping_bodies = $touch_zone.get_overlapping_bodies()
 		# Iterate through all overlapping bodies
@@ -105,6 +111,7 @@ func player_interact(delta):
 			if body.has_method("interact_with_player"):
 				# Call the "interact_with_player" function on the body
 				body.interact_with_player(self)
+				interact_cd_left = interact_cd
 	
 func play_anim(is_moving, is_attacking):
 	var anim_player = $AnimatedSprite2D
@@ -146,10 +153,9 @@ func play_anim(is_moving, is_attacking):
 				anim_player.play("side_idle")
 
 func _on_attack_zone_body_entered(body):
-	if "enemy" in body.name.to_lower():
+	if body.has_method("be_an_enemy"):
 		enemy_in_damage_zone.append(body)
 
 func _on_attack_zone_body_exited(body):
-	if "enemy" in body.name.to_lower():
+	if body.has_method("be_an_enemy"):
 		enemy_in_damage_zone.erase(body)
-
