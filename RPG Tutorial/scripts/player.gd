@@ -19,6 +19,12 @@ var interact_cd_left = interact_cd
 
 var enemy_in_damage_zone = []
 
+var player_params = {
+	"player_level": 1,
+	"player_exp": 0,
+	"player_attack": 5 
+}
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	set_damaging_timing("front_attack", 1, 2)
@@ -28,7 +34,7 @@ func _physics_process(delta):
 	player_interact(delta)
 	inflict_enemy_damage(delta)
 	player_movement(delta)
-	play_anim(is_moving, is_attacking)
+	play_anim(delta)
 	
 func player_movement(delta):
 	
@@ -63,11 +69,10 @@ func player_movement(delta):
 		is_moving = false
 	move_and_slide()
 
-func inflict_enemy_damage(delta):
+func inflict_enemy_damage(_delta):
 	if is_attacking:
 		for body in enemy_in_damage_zone:
-			body.take_damage(player_attack_num)
-		print(len(enemy_in_damage_zone))
+			body.take_damage(player_params["player_attack"])
 
 func get_anim_absolute_duration(anim_name, frame_idx):
 	var sprite_frames = $AnimatedSprite2D.sprite_frames
@@ -86,7 +91,19 @@ func set_damaging_timing(damage_anim_name, damage_begin_idx, damage_end_idx):
 		damage_end_time += get_anim_absolute_duration(damage_anim_name, i)
 	for i in range(damage_begin_idx, damage_end_idx):
 		damage_end_time += get_anim_absolute_duration(damage_anim_name, i)
+
+func player_upgrade():
+	var delta_level = int(player_params["player_exp"] / 10)
+	player_params["player_level"] += delta_level
+	player_params["player_exp"] = player_params["player_exp"] % 10
+	player_params["player_attack"] += delta_level * 2
 	
+	print("Player Upgraded from", player_params["player_level"] - delta_level, "to", player_params["player_level"], "!")
+
+func receive_exp(received_exp):
+	player_params["player_exp"] += received_exp
+	if int(player_params["player_exp"] / 10) >= 1:
+		player_upgrade()
 	
 func player_attack(delta):
 	if Input.is_action_pressed("character_attack"):
@@ -113,7 +130,7 @@ func player_interact(delta):
 				body.interact_with_player(self)
 				interact_cd_left = interact_cd
 	
-func play_anim(is_moving, is_attacking):
+func play_anim(_delta):
 	var anim_player = $AnimatedSprite2D
 	if face_dir == 0:
 		anim_player.set_flip_h(false)

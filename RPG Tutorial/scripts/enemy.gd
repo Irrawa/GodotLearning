@@ -14,6 +14,9 @@ var dying_timer = 0
 
 var health = 300
 
+var self_exp = 1
+var exp_given = false
+
 @onready
 var detection_area = $detection_area
 
@@ -74,7 +77,7 @@ func wander(delta):
 		idle_timer = randf_range(1, 2)
 		return
 
-func chase_player(delta):
+func chase_player(_delta):
 	var direction = (player_body.global_position - global_position).normalized()
 	if (player_body.global_position - global_position).length_squared() < 300:
 		velocity = Vector2.ZERO
@@ -128,8 +131,15 @@ func play_animation():
 func take_damage(player_attack_num):
 	health -= player_attack_num
 	if health <= 0:
-		is_dying = true
-		SPEED = 0
+		self.death()
+
+func death():
+	is_dying = true
+	SPEED = 0
+	$CollisionShape2D.queue_free()
+	if player_body != null and not exp_given:
+		player_body.receive_exp(self_exp)
+		exp_given = true
 
 func be_an_enemy():
 	pass

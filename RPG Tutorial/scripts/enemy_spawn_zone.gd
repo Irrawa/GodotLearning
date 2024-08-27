@@ -39,13 +39,12 @@ func _ready() -> void:
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.autostart = true
 	spawn_timer.one_shot = false
-	add_child(spawn_timer)
 
 	# Start the spawning process
 	spawn_timer.start()
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_timer_timeout() -> void:
