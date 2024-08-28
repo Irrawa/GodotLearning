@@ -1,0 +1,155 @@
+[gd_scene load_steps=45 format=4 uid="uid://bnifgh6xdxd7e"]
+
+[ext_resource type="Texture2D" uid="uid://d0c6c510hke57" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/door_floor.png" id="1_3fowg"]
+[ext_resource type="Texture2D" uid="uid://dse0bo5h7i25m" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_1.png" id="2_76j64"]
+[ext_resource type="Texture2D" uid="uid://do2mekpuv4m48" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_10.png" id="3_5rqe4"]
+[ext_resource type="Texture2D" uid="uid://d2mf7sxop577m" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side2.png" id="4_gfue3"]
+[ext_resource type="Texture2D" uid="uid://djvpme8udpjf4" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side3.png" id="5_eu83s"]
+[ext_resource type="Texture2D" uid="uid://ckno1ewpsirg3" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side4.png" id="6_k1w5g"]
+[ext_resource type="Texture2D" uid="uid://bqk4625661iw5" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side5.png" id="7_7kp1t"]
+[ext_resource type="Texture2D" uid="uid://ce1bwg2esbg3f" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side.png" id="8_e11w0"]
+[ext_resource type="Texture2D" uid="uid://dbikubq1ix5jl" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side_left.png" id="9_pp4as"]
+[ext_resource type="Texture2D" uid="uid://drif72jeh7b0c" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_side_right.png" id="10_7l0u3"]
+[ext_resource type="Texture2D" uid="uid://dxer1x1cploek" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_stair.png" id="11_7jejg"]
+[ext_resource type="Texture2D" uid="uid://bh5m3t52vpj0b" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_2.png" id="12_r10aq"]
+[ext_resource type="Texture2D" uid="uid://ps8uhkm1hlsj" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_3.png" id="13_ta0hm"]
+[ext_resource type="Texture2D" uid="uid://uevcc7tglyoo" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/stair_nextlevel.png" id="14_1r1c8"]
+[ext_resource type="Texture2D" uid="uid://cph201hagqkfa" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/spikes_spritesheet.png" id="15_orkpl"]
+[ext_resource type="Texture2D" uid="uid://eebp05otsq6r" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_4.png" id="16_m333o"]
+[ext_resource type="Texture2D" uid="uid://nirqxe2qpifs" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_5.png" id="17_lfymi"]
+[ext_resource type="Texture2D" uid="uid://gl3os0eok171" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_6.png" id="18_whisv"]
+[ext_resource type="Texture2D" uid="uid://buvv0sv4ct6yf" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_7.png" id="19_06mte"]
+[ext_resource type="Texture2D" uid="uid://bd4ktk1ak1lun" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_8.png" id="20_rmrj2"]
+[ext_resource type="Texture2D" uid="uid://dax3nx8qbqswy" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/floor_9.png" id="21_kciij"]
+[ext_resource type="PackedScene" uid="uid://c1l3wmrsfv6wh" path="res://scene/warpgate.tscn" id="22_gaatw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pda01"]
+texture = ExtResource("1_3fowg")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5jih"]
+texture = ExtResource("2_76j64")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_beylr"]
+texture = ExtResource("3_5rqe4")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxai2"]
+texture = ExtResource("4_gfue3")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g3hj6"]
+texture = ExtResource("5_eu83s")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xmif5"]
+texture = ExtResource("6_k1w5g")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg3et"]
+texture = ExtResource("7_7kp1t")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivefn"]
+texture = ExtResource("8_e11w0")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2p60"]
+texture = ExtResource("9_pp4as")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wywmn"]
+texture = ExtResource("10_7l0u3")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwgbn"]
+texture = ExtResource("11_7jejg")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wfy6u"]
+texture = ExtResource("12_r10aq")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rlov"]
+texture = ExtResource("13_ta0hm")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6opmg"]
+texture = ExtResource("14_1r1c8")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hvno2"]
+texture = ExtResource("15_orkpl")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cee44"]
+texture = ExtResource("16_m333o")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q34k4"]
+texture = ExtResource("17_lfymi")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbqwb"]
+texture = ExtResource("18_whisv")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytwia"]
+texture = ExtResource("19_06mte")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b47xk"]
+texture = ExtResource("20_rmrj2")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6ey7"]
+texture = ExtResource("21_kciij")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qggjk"]
+sources/0 = SubResource("TileSetAtlasSource_pda01")
+sources/1 = SubResource("TileSetAtlasSource_j5jih")
+sources/2 = SubResource("TileSetAtlasSource_wfy6u")
+sources/3 = SubResource("TileSetAtlasSource_8rlov")
+sources/4 = SubResource("TileSetAtlasSource_cee44")
+sources/5 = SubResource("TileSetAtlasSource_q34k4")
+sources/6 = SubResource("TileSetAtlasSource_sbqwb")
+sources/7 = SubResource("TileSetAtlasSource_ytwia")
+sources/8 = SubResource("TileSetAtlasSource_b47xk")
+sources/9 = SubResource("TileSetAtlasSource_d6ey7")
+sources/10 = SubResource("TileSetAtlasSource_beylr")
+sources/11 = SubResource("TileSetAtlasSource_fxai2")
+sources/12 = SubResource("TileSetAtlasSource_g3hj6")
+sources/13 = SubResource("TileSetAtlasSource_xmif5")
+sources/14 = SubResource("TileSetAtlasSource_yg3et")
+sources/15 = SubResource("TileSetAtlasSource_ivefn")
+sources/16 = SubResource("TileSetAtlasSource_m2p60")
+sources/17 = SubResource("TileSetAtlasSource_wywmn")
+sources/18 = SubResource("TileSetAtlasSource_pwgbn")
+sources/30 = SubResource("TileSetAtlasSource_6opmg")
+sources/32 = SubResource("TileSetAtlasSource_hvno2")
+
+[node name="BadWorld" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_qggjk")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9////BQAAAAAAAAD9/wAABQAAAAAAAAD8/wAABQAAAAAAAAD8/wEABQAAAAAAAAD8/wIABQAAAAAAAAD9/wIABQAAAAAAAAD9/wEABQAAAAAAAAD8////BQAAAAAAAAD8//7/BgAAAAAAAAD9//3/BQAAAAAAAAD9//z/BQAAAAAAAAD8//z/BQAAAAAAAAD8//3/BQAAAAAAAAD7//3/BQAAAAAAAAD7//7/BQAAAAAAAAD7////BQAAAAAAAAD7/wAABQAAAAAAAAD7/wEABQAAAAAAAAD7/wIABQAAAAAAAAD7/wMABQAAAAAAAAD7/wQADwAAAAAAAAD7//z/BQAAAAAAAAD+//z/BQAAAAAAAAD///z/BQAAAAAAAAAAAPz/BQAAAAAAAAABAPz/BQAAAAAAAAACAPz/BQAAAAAAAAACAP3/BQAAAAAAAAACAP7/BQAAAAAAAAACAP//BQAAAAAAAAACAAAABQAAAAAAAAACAAEABQAAAAAAAAACAAIABQAAAAAAAAACAAMABQAAAAAAAAABAAMABQAAAAAAAAABAAQABQAAAAAAAAAAAAQABQAAAAAAAAD//wQABQAAAAAAAAD+/wQABQAAAAAAAAD9/wQABQAAAAAAAAD9/wMABQAAAAAAAAD8/wMABQAAAAAAAAD+//7/BQAAAAAAAAD+//3/BgAAAAAAAAD///3/BQAAAAAAAAAAAP3/BQAAAAAAAAD///7/BQAAAAAAAAD/////BQAAAAAAAAD+////BQAAAAAAAAD+/wAABQAAAAAAAAD+/wEABQAAAAAAAAD+/wIABQAAAAAAAAD//wMABQAAAAAAAAD//wIABQAAAAAAAAAAAAEAHgAAAAAAAAAAAAAABQAAAAAAAAABAAAABQAAAAAAAAABAP//BQAAAAAAAAABAP7/BQAAAAAAAAABAP3/BQAAAAAAAAAAAP//BQAAAAAAAAAAAAIABQAAAAAAAAAAAAMABQAAAAAAAAD//wEABQAAAAAAAAAAAP7/BQAAAAAAAAD//wAABQAAAAAAAAD+/wMABQAAAAAAAAD8/wQABQAAAAAAAAACAAQABQAAAAAAAAABAAEABQAAAAAAAAABAAIABQAAAAAAAAD9//7/BQAAAAAAAAD9//v/BQAAAAAAAAD+//v/BQAAAAAAAAD///v/BQAAAAAAAAAAAPv/BQAAAAAAAAABAPv/BQAAAAAAAAACAPv/BQAAAAAAAAADAPv/BQAAAAAAAAADAPz/BQAAAAAAAAADAP3/BQAAAAAAAAADAP7/BQAAAAAAAAADAP//BQAAAAAAAAADAAAABQAAAAAAAAADAAEABQAAAAAAAAADAAIABQAAAAAAAAADAAMABQAAAAAAAAADAAQABQAAAAAAAAADAAUABQAAAAAAAAACAAUABQAAAAAAAAABAAUABQAAAAAAAAAAAAUABQAAAAAAAAD//wUABQAAAAAAAAD6/wQABQAAAAAAAAD6/wUABQAAAAAAAAD7/wUABQAAAAAAAAD8/wUABQAAAAAAAAD9/wUABQAAAAAAAAD+/wUABQAAAAAAAAD6/wMABQAAAAAAAAD6/wIABQAAAAAAAAD6/wEABQAAAAAAAAD6/wAABQAAAAAAAAD6////BQAAAAAAAAD6//7/BQAAAAAAAAD7//v/BQAAAAAAAAD8//v/BQAAAAAAAAD6//v/BQAAAAAAAAD6//z/BQAAAAAAAAD6//3/BQAAAAAAAAD5//r/BQAAAAAAAAD5//v/BQAAAAAAAAD5//z/BQAAAAAAAAD5//3/BQAAAAAAAAD5//7/BQAAAAAAAAD5////BQAAAAAAAAD5/wAABQAAAAAAAAD5/wEABQAAAAAAAAD5/wIABQAAAAAAAAD5/wMABQAAAAAAAAD5/wQABQAAAAAAAAD5/wUABQAAAAAAAAD5/wYABQAAAAAAAAD6/wYABQAAAAAAAAD7/wYABQAAAAAAAAD8/wYABQAAAAAAAAD9/wYABQAAAAAAAAD+/wYABQAAAAAAAAADAAYABQAAAAAAAAACAAYABQAAAAAAAAABAAYABQAAAAAAAAAAAAYABQAAAAAAAAD//wYABQAAAAAAAAAEAAYABQAAAAAAAAAFAAYABQAAAAAAAAAEAAUABQAAAAAAAAAEAAQABQAAAAAAAAAEAAMABQAAAAAAAAAEAAIABQAAAAAAAAAEAAEABQAAAAAAAAAEAAAABQAAAAAAAAAEAP//BQAAAAAAAAAEAP7/BQAAAAAAAAAEAP3/BQAAAAAAAAAEAPz/BQAAAAAAAAAEAPv/BQAAAAAAAAAEAPr/BQAAAAAAAAADAPr/BQAAAAAAAAACAPr/BQAAAAAAAAABAPr/BQAAAAAAAAAAAPr/BQAAAAAAAAD///r/BQAAAAAAAAD+//r/BQAAAAAAAAD9//r/BQAAAAAAAAD8//r/BQAAAAAAAAD7//r/BQAAAAAAAAD6//r/BQAAAAAAAAD4/wcABQAAAAAAAAD4/wgABQAAAAAAAAD4/wkABQAAAAAAAAD4/woABQAAAAAAAAD4/wsABQAAAAAAAAD4/wwABQAAAAAAAAD5/wcABQAAAAAAAAD5/wgABQAAAAAAAAD5/wkABQAAAAAAAAD5/woABQAAAAAAAAD5/wsABQAAAAAAAAD5/wwABQAAAAAAAAD6/wcABQAAAAAAAAD6/wgABQAAAAAAAAD6/wkABQAAAAAAAAD6/woABQAAAAAAAAD6/wsABQAAAAAAAAD6/wwABQAAAAAAAAD7/wcABQAAAAAAAAD7/wgABQAAAAAAAAD7/wkABQAAAAAAAAD7/woABQAAAAAAAAD7/wsABQAAAAAAAAD7/wwABQAAAAAAAAD8/wcABQAAAAAAAAD8/wgABQAAAAAAAAD8/wkABQAAAAAAAAD8/woABQAAAAAAAAD8/wsABQAAAAAAAAD8/wwABQAAAAAAAAD9/wcABQAAAAAAAAD9/wgABQAAAAAAAAD9/wkABQAAAAAAAAD9/woABQAAAAAAAAD9/wsABQAAAAAAAAD9/wwABQAAAAAAAAD+/wcABQAAAAAAAAD+/wgABQAAAAAAAAD+/wkABQAAAAAAAAD+/woABQAAAAAAAAD+/wsABQAAAAAAAAD+/wwABQAAAAAAAAD//wcABQAAAAAAAAD//wgABQAAAAAAAAD//wkABQAAAAAAAAD//woABQAAAAAAAAD//wsABQAAAAAAAAD//wwABQAAAAAAAAAAAAcABQAAAAAAAAAAAAgABQAAAAAAAAAAAAkABQAAAAAAAAAAAAoABQAAAAAAAAAAAAsABQAAAAAAAAAAAAwABQAAAAAAAAABAAcABQAAAAAAAAABAAgABQAAAAAAAAABAAkABQAAAAAAAAABAAoADwAAAAAAAAABAAsABQAAAAAAAAABAAwABQAAAAAAAAACAAcABQAAAAAAAAACAAgABQAAAAAAAAACAAkABQAAAAAAAAACAAoABQAAAAAAAAACAAsABQAAAAAAAAACAAwABQAAAAAAAADx//r/BQAAAAAAAADx//v/BQAAAAAAAADx//z/BQAAAAAAAADx//3/BQAAAAAAAADx//7/BQAAAAAAAADx////BQAAAAAAAADx/wAABQAAAAAAAADx/wEABQAAAAAAAADx/wIABQAAAAAAAADx/wMABQAAAAAAAADx/wQABQAAAAAAAADx/wUABQAAAAAAAADx/wYABQAAAAAAAADx/wcABQAAAAAAAADx/wgABQAAAAAAAADy//r/BQAAAAAAAADy//v/BQAAAAAAAADy//z/BQAAAAAAAADy//3/BQAAAAAAAADy//7/BQAAAAAAAADy////BQAAAAAAAADy/wAABQAAAAAAAADy/wEABQAAAAAAAADy/wIABQAAAAAAAADy/wMABQAAAAAAAADy/wQABQAAAAAAAADy/wUABQAAAAAAAADy/wYABQAAAAAAAADy/wcABQAAAAAAAADy/wgABQAAAAAAAADz//r/BQAAAAAAAADz//v/BQAAAAAAAADz//z/BQAAAAAAAADz//3/BQAAAAAAAADz//7/BQAAAAAAAADz////BQAAAAAAAADz/wAABQAAAAAAAADz/wEABQAAAAAAAADz/wIABQAAAAAAAADz/wMABQAAAAAAAADz/wQABQAAAAAAAADz/wUABQAAAAAAAADz/wYABQAAAAAAAADz/wcABQAAAAAAAADz/wgABQAAAAAAAAD0//r/BQAAAAAAAAD0//v/BQAAAAAAAAD0//z/BQAAAAAAAAD0//3/BQAAAAAAAAD0//7/BQAAAAAAAAD0////BQAAAAAAAAD0/wAABQAAAAAAAAD0/wEABQAAAAAAAAD0/wIABQAAAAAAAAD0/wMABQAAAAAAAAD0/wQABQAAAAAAAAD0/wUABQAAAAAAAAD0/wYABQAAAAAAAAD0/wcABQAAAAAAAAD0/wgABQAAAAAAAAD1//r/BQAAAAAAAAD1//v/BQAAAAAAAAD1//z/BQAAAAAAAAD1//3/BQAAAAAAAAD1//7/BQAAAAAAAAD1////BQAAAAAAAAD1/wAABQAAAAAAAAD1/wEABQAAAAAAAAD1/wIABQAAAAAAAAD1/wMABQAAAAAAAAD1/wQABQAAAAAAAAD1/wUABQAAAAAAAAD1/wYABQAAAAAAAAD1/wcABQAAAAAAAAD1/wgABQAAAAAAAAD2//r/BQAAAAAAAAD2//v/BQAAAAAAAAD2//z/BQAAAAAAAAD2//3/BQAAAAAAAAD2//7/BQAAAAAAAAD2////BQAAAAAAAAD2/wAABQAAAAAAAAD2/wEABQAAAAAAAAD2/wIABQAAAAAAAAD2/wMABQAAAAAAAAD2/wQABQAAAAAAAAD2/wUABQAAAAAAAAD2/wYABQAAAAAAAAD2/wcABQAAAAAAAAD2/wgAIAAIAAAAAAD3//r/BQAAAAAAAAD3//v/BQAAAAAAAAD3//z/BQAAAAAAAAD3//3/BQAAAAAAAAD3//7/BQAAAAAAAAD3////BQAAAAAAAAD3/wAABQAAAAAAAAD3/wEABQAAAAAAAAD3/wIABQAAAAAAAAD3/wMABQAAAAAAAAD3/wQABQAAAAAAAAD3/wUABQAAAAAAAAD3/wYABQAAAAAAAAD3/wcABQAAAAAAAAD3/wgABQAAAAAAAAD4//r/BQAAAAAAAAD4//v/BQAAAAAAAAD4//z/BQAAAAAAAAD4//3/BQAAAAAAAAD4//7/BQAAAAAAAAD4////BQAAAAAAAAD4/wAABQAAAAAAAAD4/wEABQAAAAAAAAD4/wIABQAAAAAAAAD4/wMABQAAAAAAAAD4/wQABQAAAAAAAAD4/wUABQAAAAAAAAD4/wYABQAAAAAAAADx/wkABQAAAAAAAADx/woABQAAAAAAAADx/wsABQAAAAAAAADx/wwABQAAAAAAAADy/wkABQAAAAAAAADy/woABQAAAAAAAADy/wsABQAAAAAAAADy/wwABQAAAAAAAADz/wkABQAAAAAAAADz/woABQAAAAAAAADz/wsABQAAAAAAAADz/wwABQAAAAAAAAD0/wkABQAAAAAAAAD0/woABQAAAAAAAAD0/wsABQAAAAAAAAD0/wwABQAAAAAAAAD1/wkABQAAAAAAAAD1/woABQAAAAAAAAD1/wsABQAAAAAAAAD1/wwABQAAAAAAAAD2/wkABQAAAAAAAAD2/woABQAAAAAAAAD2/wsABQAAAAAAAAD2/wwABQAAAAAAAAD3/wkABQAAAAAAAAD3/woABQAAAAAAAAD3/wsABQAAAAAAAAD3/wwABQAAAAAAAADx//f/BQAAAAAAAADx//j/BQAAAAAAAADx//n/BQAAAAAAAADy//f/BQAAAAAAAADy//j/BQAAAAAAAADy//n/BQAAAAAAAADz//f/BQAAAAAAAADz//j/BQAAAAAAAADz//n/BQAAAAAAAAD0//f/BQAAAAAAAAD0//j/BQAAAAAAAAD0//n/BQAAAAAAAAD1//f/BQAAAAAAAAD1//j/BQAAAAAAAAD1//n/BQAAAAAAAAD2//f/BQAAAAAAAAD2//j/BQAAAAAAAAD2//n/BQAAAAAAAAD3//f/BQAAAAAAAAD3//j/BQAAAAAAAAD3//n/BQAAAAAAAAD4//f/BQAAAAAAAAD4//j/BQAAAAAAAAD4//n/BQAAAAAAAAD5//f/BQAAAAAAAAD5//j/BQAAAAAAAAD5//n/BQAAAAAAAAD6//f/BQAAAAAAAAD6//j/BQAAAAAAAAD6//n/BQAAAAAAAAD7//f/BQAAAAAAAAD7//j/BQAAAAAAAAD7//n/BQAAAAAAAAD8//f/BQAAAAAAAAD8//j/BQAAAAAAAAD8//n/BQAAAAAAAAD9//f/BQAAAAAAAAD9//j/BQAAAAAAAAD9//n/BQAAAAAAAAD+//f/BQAAAAAAAAD+//j/BQAAAAAAAAD+//n/BQAAAAAAAAD///f/BQAAAAAAAAD///j/BQAAAAAAAAD///n/BQAAAAAAAAAAAPf/BQAAAAAAAAAAAPj/BQAAAAAAAAAAAPn/BQAAAAAAAAABAPf/BQAAAAAAAAABAPj/BQAAAAAAAAABAPn/BQAAAAAAAAACAPf/BQAAAAAAAAACAPj/BQAAAAAAAAACAPn/BQAAAAAAAAADAPf/BQAAAAAAAAADAPj/BQAAAAAAAAADAPn/BQAAAAAAAAAEAPf/BQAAAAAAAAAEAPj/BQAAAAAAAAAEAPn/BQAAAAAAAAAFAPf/BQAAAAAAAAAFAPj/BQAAAAAAAAAFAPn/BQAAAAAAAAAFAPr/BQAAAAAAAAAGAPf/BQAAAAAAAAAGAPj/BQAAAAAAAAAGAPn/BQAAAAAAAAAGAPr/BQAAAAAAAAAHAPf/BQAAAAAAAAAHAPj/BQAAAAAAAAAHAPn/BQAAAAAAAAAHAPr/BQAAAAAAAAADAAcABQAAAAAAAAADAAgABQAAAAAAAAADAAkABQAAAAAAAAADAAoABQAAAAAAAAADAAsABQAAAAAAAAADAAwABQAAAAAAAAAEAAcABQAAAAAAAAAEAAgABQAAAAAAAAAEAAkABQAAAAAAAAAEAAoABQAAAAAAAAAEAAsABQAAAAAAAAAEAAwABQAAAAAAAAAFAPv/BQAAAAAAAAAFAPz/BQAAAAAAAAAFAP3/BQAAAAAAAAAFAP7/BQAAAAAAAAAFAP//BQAAAAAAAAAFAAAABQAAAAAAAAAFAAEABQAAAAAAAAAFAAIABQAAAAAAAAAFAAMABQAAAAAAAAAFAAQABQAAAAAAAAAFAAUABQAAAAAAAAAFAAcABQAAAAAAAAAFAAgABQAAAAAAAAAFAAkABQAAAAAAAAAFAAoABQAAAAAAAAAFAAsABQAAAAAAAAAFAAwABQAAAAAAAAAGAPv/BQAAAAAAAAAGAPz/BQAAAAAAAAAGAP3/BQAAAAAAAAAGAP7/BQAAAAAAAAAGAP//BQAAAAAAAAAGAAAABQAAAAAAAAAGAAEABQAAAAAAAAAGAAIABQAAAAAAAAAGAAMABQAAAAAAAAAGAAQABQAAAAAAAAAGAAUABQAAAAAAAAAGAAYABQAAAAAAAAAGAAcABQAAAAAAAAAGAAgABQAAAAAAAAAGAAkABQAAAAAAAAAGAAoABQAAAAAAAAAGAAsABQAAAAAAAAAGAAwABQAAAAAAAAAHAPv/BQAAAAAAAAAHAPz/BQAAAAAAAAAHAP3/BQAAAAAAAAAHAP7/BQAAAAAAAAAHAP//BQAAAAAAAAAHAAAABQAAAAAAAAAHAAEABQAAAAAAAAAHAAIABQAAAAAAAAAHAAMABQAAAAAAAAAHAAQABQAAAAAAAAAHAAUABQAAAAAAAAAHAAYABQAAAAAAAAAHAAcABQAAAAAAAAAHAAgABQAAAAAAAAAHAAkABQAAAAAAAAAHAAoABQAAAAAAAAAHAAsABQAAAAAAAAAHAAwABQAAAAAAAAA=")
+tile_set = SubResource("TileSet_qggjk")
+
+[node name="Warpgate" parent="." instance=ExtResource("22_gaatw")]
+position = Vector2(-76, -47)

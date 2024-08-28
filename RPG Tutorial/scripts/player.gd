@@ -22,7 +22,9 @@ var enemy_in_damage_zone = []
 var player_params = {
 	"player_level": 1,
 	"player_exp": 0,
-	"player_attack": 5 
+	"player_attack": 5,
+	"pos_x": 0,
+	"pox_y": 0
 }
 
 func _ready():
@@ -98,7 +100,7 @@ func player_upgrade():
 	player_params["player_exp"] = player_params["player_exp"] % 10
 	player_params["player_attack"] += delta_level * 2
 	
-	print("Player Upgraded from", player_params["player_level"] - delta_level, "to", player_params["player_level"], "!")
+	print("Player Upgraded from ", player_params["player_level"] - delta_level, " to ", player_params["player_level"], "!")
 
 func receive_exp(received_exp):
 	player_params["player_exp"] += received_exp
@@ -169,6 +171,18 @@ func play_anim(_delta):
 			else:
 				anim_player.play("side_idle")
 
+func save_player_params():
+	player_params["pos_x"] = global_position.x
+	player_params["pos_y"] = global_position.y
+	var file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
+	file.store_var(player_params)
+	
+func load_player_params():
+	var file = FileAccess.open("user://save_game.dat", FileAccess.READ)
+	player_params = file.get_var()
+	global_position.x = player_params["pos_x"]
+	global_position.y = player_params["pos_y"]
+
 func _on_attack_zone_body_entered(body):
 	if body.has_method("be_an_enemy"):
 		enemy_in_damage_zone.append(body)
@@ -176,3 +190,12 @@ func _on_attack_zone_body_entered(body):
 func _on_attack_zone_body_exited(body):
 	if body.has_method("be_an_enemy"):
 		enemy_in_damage_zone.erase(body)
+
+func _on_save_button_button_down() -> void:
+	save_player_params()
+	print("Player Data saved!")
+
+
+func _on_load_button_button_down() -> void:
+	load_player_params()
+	print("Player Data loaded!")
