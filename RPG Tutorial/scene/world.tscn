@@ -1,10 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://5m1pcbbyj5cx"]
+[gd_scene load_steps=2 format=3 uid="uid://5m1pcbbyj5cx"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_y3r48"]
-[ext_resource type="PackedScene" uid="uid://b31irg3l7a8k" path="res://scene/good_world.tscn" id="2_lp1ax"]
 
 [node name="BaseNode" type="Node2D"]
 z_as_relative = false
 script = ExtResource("1_y3r48")
-
-[node name="GoodWorld" parent="." instance=ExtResource("2_lp1ax")]
