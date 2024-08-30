@@ -2,8 +2,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var current_tree = get_tree()
-	
 	var goodworld_instance = preload("res://scene/good_world.tscn").instantiate()
 	goodworld_instance.global_position = Vector2(0, 0)
 	self.add_child(goodworld_instance)
