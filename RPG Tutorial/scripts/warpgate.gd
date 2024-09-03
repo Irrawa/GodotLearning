@@ -9,48 +9,27 @@ func _process(delta):
 	pass
 	
 func interact_with_player(player):
-	var current_tree = get_tree()
-	var good_world_scene = current_tree.current_scene.find_child("GoodWorld", true, false)
-	var bad_world_scene = current_tree.current_scene.find_child("BadWorld", true, false)
-	if bad_world_scene == null:
-		bad_world_scene = preload("res://scene/bad_world.tscn").instantiate()
-		bad_world_scene.global_position = Vector2(0, 0)
-		current_tree.current_scene.add_child(bad_world_scene)
-		move_player_to_new_scene(player, good_world_scene, bad_world_scene)
-		current_tree.current_scene.remove_child(good_world_scene)
+	var current_scene = player.get_parent()
+	var base_scene = current_scene.get_parent()
+	var current_world_name = current_scene.name  # Get the current scene's name
+	var target_scene_path = ""
+
+	# Determine the target scene based on the current scene
+	if current_world_name == "GoodWorld":
+		target_scene_path = "res://scene/bad_world.tscn"
+	elif current_world_name == "BadWorld":
+		target_scene_path = "res://scene/good_world.tscn"
 	else:
-		good_world_scene = preload("res://scene/good_world.tscn").instantiate()
-		good_world_scene.global_position = Vector2(0, 0)
-		current_tree.current_scene.add_child(good_world_scene)
-		move_player_to_new_scene(player, bad_world_scene, good_world_scene)
-		current_tree.current_scene.remove_child(bad_world_scene)
-
-# Disable input and interaction for all nodes in the specified scene
-func disable_interaction_for_scene(scene):
-	for node in scene.get_children():
-		if node is Control or node is Node2D:
-			node.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Ignore mouse input
-			node.set_process_input(false)  # Stop processing input events
-			node.set_block_signals(true)  # Block signals
-		elif node is CollisionObject2D:
-			node.set_deferred("disabled", true)  # Disable collisions and physics interactions
-		# Recursively disable interaction for child nodes
-		disable_interaction_for_scene(node)
-
-func move_player_to_new_scene(player, current_scene_root, new_scene_root):
-	# Ensure the player is not null
-	if player == null:
+		print("Current Scene Name: ", current_world_name)
+		print("Unknown scene. This node should be in either GoodWorld or BadWorld.")
 		return
+
+	# Load the target scene
+	var target_scene = load(target_scene_path).instantiate()
+	target_scene.global_position = Vector2(0, 0)  # Adjust the position as needed
 	
-	# Remove the player from its current parent
-	if current_scene_root != null:
-		current_scene_root.remove_child(player)
-	
-	# Add the player to the new scene's root node
-	new_scene_root.add_child(player)
-	
-	var offset = Vector2(0, 0)
-	
-	# Optionally, you can set the player's position if needed
-	player.global_transform.origin = new_scene_root.global_transform.origin + offset
+	current_scene.remove_child(player)
+	target_scene.add_child(player)
+	base_scene.add_child(target_scene)
+	current_scene.queue_free()  # Queue the old scene for deletion
 	

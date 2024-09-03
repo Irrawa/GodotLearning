@@ -12,7 +12,7 @@ var damage_end_time = 0
 var attack_effect_time = 0.5
 var attack_time_left = 0
 
-var player_attack_num = 5
+@export var player_attack_num: int = 5
 
 var interact_cd = 0.3
 var interact_cd_left = interact_cd
@@ -93,6 +93,7 @@ func set_damaging_timing(damage_anim_name, damage_begin_idx, damage_end_idx):
 		damage_end_time += get_anim_absolute_duration(damage_anim_name, i)
 	for i in range(damage_begin_idx, damage_end_idx):
 		damage_end_time += get_anim_absolute_duration(damage_anim_name, i)
+	print("Player damage timing set: Begin time: ", damage_begin_time, "  End time: ", damage_end_time)
 
 func player_upgrade():
 	var delta_level = int(player_params["player_exp"] / 10)

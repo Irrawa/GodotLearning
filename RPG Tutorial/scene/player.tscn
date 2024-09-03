@@ -369,7 +369,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1mvlo")
 }],
-"loop": true,
+"loop": false,
 "name": &"side_attack",
 "speed": 5.0
 }, {
@@ -439,7 +439,9 @@ shape = SubResource("CircleShape2D_r63k8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_uakkf")
-animation = &"front_attack"
+animation = &"side_attack"
+frame = 3
+frame_progress = 1.0
 offset = Vector2(0, -16.65)
 
 [node name="attack_zone" type="Area2D" parent="."]
