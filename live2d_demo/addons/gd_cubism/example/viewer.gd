@@ -13,20 +13,34 @@ var cubism_model: GDCubismUserModel
 var ary_param: Array
 var last_motion = null  # Keeps track of the last motion played
 
+var base_motion = null
+
 # Function to set up the Cubism model with the given pathname
 func setup(pathname: String):
+	print("\n==============New L2D Model==============")
+	print("Passed pathname: ", pathname)
 	cubism_model.assets = pathname  # Set the assets for the model
+	print("Cubism user model assets: ", cubism_model.assets)
 
 	# Retrieve canvas information for the model
 	var canvas_info = cubism_model.get_canvas_info()
+	print("canvas_info: ", canvas_info)
 
 	# Initialize motion list in the UI
 	var idx: int = 0
 	var dict_motion = cubism_model.get_motions()
+	print("dict_motion: ", dict_motion)
+	
 	$UI/ItemListMotion.clear()  # Clear the current list of motions
+	
+	base_motion = null
+	
 	for k in dict_motion:
 		for v in range(dict_motion[k]):
-			$UI/ItemListMotion.add_item("{0}_{1}".format([k, v]))  # Add motion items to the UI list
+			if base_motion == null:
+				base_motion = {"group": k, "no": v}
+			var added_index = $UI/ItemListMotion.add_item("{0}_{1}".format([k, v]))  # Add motion items to the UI list
+			assert(added_index == idx)
 			$UI/ItemListMotion.set_item_metadata(idx, {"group": k, "no": v})  # Store metadata for motion selection
 			idx += 1
 
@@ -38,6 +52,9 @@ func setup(pathname: String):
 	# Set the model to idle mode and assign its texture to a Sprite2D node
 	cubism_model.playback_process_mode = GDCubismUserModel.IDLE
 	$Sprite2D.texture = cubism_model.get_texture()
+	
+	cubism_model.anim_loop = false
+	cubism_model.start_motion(base_motion["group"], base_motion["no"], GDCubismUserModel.PRIORITY_FORCE)
 
 	# Create and set a material for the Sprite2D node
 	var mat = CanvasItemMaterial.new()
@@ -69,10 +86,7 @@ func _ready():
 		cubism_model.motion_finished.connect(_on_motion_finished)  # Connect the motion finished signal to a handler
 	$Sprite2D.add_child(cubism_model)  # Add the model as a child to the Sprite2D node
 
-	# Initialize the model selection UI
-	$UI/OptModel.clear()
-	$UI/OptModel.add_item("")  # Add an empty item as the default
-	model3_search("res://addons/gd_cubism/example/res/live2d")  # Search for models in the specified directory
+	model3_search("res://arts/")  # Search for models in the specified directory
 
 # Process function that runs every frame to adjust the model's size and position based on the window size
 func _process(delta):
@@ -90,13 +104,14 @@ func _process(delta):
 # Function called when a motion finishes playing
 func _on_motion_finished():
 	cubism_model.start_motion(
-		last_motion.group,
-		last_motion.no,
+		base_motion.group,
+		base_motion.no,
 		GDCubismUserModel.PRIORITY_FORCE
 	)  # Restart the last motion that was played
 
 # Function called when a model is selected from the UI dropdown
 func _on_opt_model_item_selected(index):
+	print("OptModel selected! Index:", index)
 	setup($UI/OptModel.get_item_text(index))  # Set up the selected model
 
 # Function called when a motion is selected from the motion list
