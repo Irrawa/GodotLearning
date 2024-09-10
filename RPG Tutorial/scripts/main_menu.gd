@@ -12,4 +12,7 @@ func _process(delta: float) -> void:
 func _on_button_button_up() -> void:
 	var world_scene = preload("res://scene/world.tscn") as PackedScene
 	get_tree().change_scene_to_packed(world_scene)
-	
+
+func _on_button_2_button_up() -> void:
+	var settings_scene = preload("res://scene/settings.tscn").instantiate()
+	self.add_child(settings_scene)
