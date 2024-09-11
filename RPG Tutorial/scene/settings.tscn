@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://gvik7ssojtwi"]
+[gd_scene load_steps=3 format=3 uid="uid://gvik7ssojtwi"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_gxdce"]
+[ext_resource type="PackedScene" uid="uid://dlha0qwtr6vol" path="res://scene/close_button.tscn" id="1_t3gyw"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gxdce")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -20,11 +24,11 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 200
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="settings_box" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
 color = Color(1, 1, 1, 0.811765)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect"]
+[node name="settings_container" type="VBoxContainer" parent="MarginContainer/settings_box"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,66 +45,70 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 60
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="total_sound" type="HBoxContainer" parent="MarginContainer/settings_box/settings_container"]
 layout_mode = 2
 theme_override_constants/separation = 100
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="total_sound_label" type="Label" parent="MarginContainer/settings_box/settings_container/total_sound"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "总音量"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="total_sound_h_slider" type="HSlider" parent="MarginContainer/settings_box/settings_container/total_sound"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 rounded = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/settings_box/settings_container"]
 layout_mode = 2
 theme_override_constants/separation = 100
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer/settings_box/settings_container/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "背景音量"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="MarginContainer/settings_box/settings_container/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 rounded = true
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/settings_box/settings_container"]
 layout_mode = 2
 theme_override_constants/separation = 100
 
-[node name="Label3" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+[node name="Label3" type="Label" parent="MarginContainer/settings_box/settings_container/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "音效音量"
 
-[node name="HSlider3" type="HSlider" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+[node name="HSlider3" type="HSlider" parent="MarginContainer/settings_box/settings_container/HBoxContainer3"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 rounded = true
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/settings_box/settings_container"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "分辨率   "
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="resolution_select_button" type="OptionButton" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -112,18 +120,34 @@ popup/item_1/id = 1
 popup/item_2/text = "2560*1440"
 popup/item_2/id = 2
 
-[node name="Control" type="Control" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="Control" type="Control" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Label2" type="Label" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="Label2" type="Label" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "全屏显示"
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer4"]
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
+
+[node name="CloseButton" parent="." instance=ExtResource("1_t3gyw")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -632.0
+offset_top = 200.0
+offset_right = -400.0
+offset_bottom = 433.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[connection signal="drag_ended" from="MarginContainer/settings_box/settings_container/total_sound/total_sound_h_slider" to="." method="_on_total_sound_h_slider_drag_ended"]
+[connection signal="item_selected" from="MarginContainer/settings_box/settings_container/HBoxContainer4/resolution_select_button" to="." method="_on_option_button_item_selected"]

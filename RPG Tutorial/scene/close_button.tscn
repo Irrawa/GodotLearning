@@ -1,8 +1,21 @@
-[gd_scene format=3 uid="uid://dlha0qwtr6vol"]
+[gd_scene load_steps=5 format=3 uid="uid://dlha0qwtr6vol"]
+
+[ext_resource type="Texture2D" uid="uid://c57xacyx8ypmi" path="res://art/ui/buttons/back_button/back_normal.png" id="1_4wx7c"]
+[ext_resource type="Texture2D" uid="uid://jcwsdgmg8anf" path="res://art/ui/buttons/back_button/back_click.png" id="2_iay8k"]
+[ext_resource type="Texture2D" uid="uid://d4w3b8ghedbo" path="res://art/ui/buttons/back_button/back_hover.png" id="3_rmm23"]
+[ext_resource type="Script" path="res://scripts/close_button.gd" id="4_8kngr"]
 
 [node name="CloseButton" type="TextureButton"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1688.0
+offset_bottom = -847.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_normal = ExtResource("1_4wx7c")
+texture_pressed = ExtResource("2_iay8k")
+texture_hover = ExtResource("3_rmm23")
+script = ExtResource("4_8kngr")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
