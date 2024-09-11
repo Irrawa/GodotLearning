@@ -3,6 +3,11 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().root.content_scale_factor = 1
+	get_tree().root.set_content_scale_size(Global.global_info["sys"]["resolution"])
+	if not Global.global_info["sys"]["full_screen"]:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

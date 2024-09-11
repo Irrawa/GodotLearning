@@ -132,7 +132,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "全屏显示"
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
+[node name="fullscreen_switch_button" type="CheckButton" parent="MarginContainer/settings_box/settings_container/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -151,3 +151,4 @@ grow_vertical = 1
 
 [connection signal="drag_ended" from="MarginContainer/settings_box/settings_container/total_sound/total_sound_h_slider" to="." method="_on_total_sound_h_slider_drag_ended"]
 [connection signal="item_selected" from="MarginContainer/settings_box/settings_container/HBoxContainer4/resolution_select_button" to="." method="_on_option_button_item_selected"]
+[connection signal="toggled" from="MarginContainer/settings_box/settings_container/HBoxContainer4/fullscreen_switch_button" to="." method="_on_fullscreen_switch_button_toggled"]
