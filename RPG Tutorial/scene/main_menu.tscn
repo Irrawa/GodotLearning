@@ -69,7 +69,7 @@ alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 120
+theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -78,12 +78,6 @@ label_settings = SubResource("LabelSettings_bg723")
 
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "123"
-label_settings = SubResource("LabelSettings_bg723")
-
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "123"
 label_settings = SubResource("LabelSettings_bg723")
 
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
@@ -96,5 +90,13 @@ text = "START"
 [node name="Button2" parent="MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_0s03w")]
 layout_mode = 2
 
+[node name="exit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_j3t53")
+theme_override_font_sizes/font_size = 48
+text = "EXIT"
+
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer2/Button" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer2/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer2/exit_button" to="." method="_on_exit_button_button_up"]
