@@ -29,7 +29,10 @@ func setup(pathname: String):
 	# Initialize motion list in the UI
 	var idx: int = 0
 	var dict_motion = cubism_model.get_motions()
-	print("dict_motion: ", dict_motion)
+	print("dict_motions: ", dict_motion)
+	
+	var list_expressions = cubism_model.get_expressions()
+	print("list_expressions", list_expressions)
 	
 	$UI/ItemListMotion.clear()  # Clear the current list of motions
 	
@@ -37,7 +40,7 @@ func setup(pathname: String):
 	
 	for k in dict_motion:
 		for v in range(dict_motion[k]):
-			if base_motion == null:
+			if not base_motion:
 				base_motion = {"group": k, "no": v}
 			var added_index = $UI/ItemListMotion.add_item("{0}_{1}".format([k, v]))  # Add motion items to the UI list
 			assert(added_index == idx)
@@ -46,7 +49,7 @@ func setup(pathname: String):
 
 	# Initialize expression list in the UI
 	$UI/ItemListExpression.clear()
-	for item in cubism_model.get_expressions():
+	for item in list_expressions:
 		$UI/ItemListExpression.add_item(item)  # Add expression items to the UI list
 
 	# Set the model to idle mode and assign its texture to a Sprite2D node
@@ -54,7 +57,8 @@ func setup(pathname: String):
 	$Sprite2D.texture = cubism_model.get_texture()
 	
 	cubism_model.anim_loop = false
-	cubism_model.start_motion(base_motion["group"], base_motion["no"], GDCubismUserModel.PRIORITY_FORCE)
+	if base_motion:
+		cubism_model.start_motion(base_motion["group"], base_motion["no"], GDCubismUserModel.PRIORITY_FORCE)
 
 	# Create and set a material for the Sprite2D node
 	var mat = CanvasItemMaterial.new()

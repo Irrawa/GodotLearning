@@ -1,0 +1,182 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "ParamGroup",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "ParamGroup",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "ParamGroup2",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "ParamGroup2",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "ParamGroup2",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "ParamGroup2",
+			"Name": "右目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "ParamGroup2",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "ParamGroup2",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "ParamGroup3",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "ParamGroup3",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "ParamGroup4",
+			"Name": "体の回転　X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "ParamGroup4",
+			"Name": "体の回転　Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "ParamGroup4",
+			"Name": "体の回転　Z"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "ParamGroup4",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamTailX",
+			"GroupId": "ParamGroup5",
+			"Name": "しっぽ揺れ X"
+		},
+		{
+			"Id": "ParamTailY",
+			"GroupId": "ParamGroup5",
+			"Name": "しっぽ揺れ Y"
+		},
+		{
+			"Id": "ParamOthersSwayX",
+			"GroupId": "ParamGroup5",
+			"Name": "その他揺れ物 X"
+		},
+		{
+			"Id": "ParamOthersSwayY",
+			"GroupId": "ParamGroup5",
+			"Name": "その他揺れ物 Y"
+		},
+		{
+			"Id": "ParamOthersSwayZ",
+			"GroupId": "ParamGroup5",
+			"Name": "その他揺れ物 Z"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "頭パラメータグループ"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "目パラメータグループ"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "口パラメータグループ"
+		},
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "その他パラメータグループ"
+		},
+		{
+			"Id": "ParamGroup5",
+			"GroupId": "",
+			"Name": "揺れ物グループ"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part3",
+			"Name": "頭グループ"
+		},
+		{
+			"Id": "Part7",
+			"Name": "上半身グループ"
+		},
+		{
+			"Id": "Part8",
+			"Name": "下半身グループ"
+		},
+		{
+			"Id": "Part4",
+			"Name": "マズルグループ"
+		},
+		{
+			"Id": "Part5",
+			"Name": "目グループ"
+		},
+		{
+			"Id": "Part6",
+			"Name": "ウィスカーグループ"
+		},
+		{
+			"Id": "Part9",
+			"Name": "耳グループ"
+		},
+		{
+			"Id": "Part10",
+			"Name": "腕グループ"
+		},
+		{
+			"Id": "Part11",
+			"Name": "足グループ"
+		},
+		{
+			"Id": "Part12",
+			"Name": "しっぽグループ"
+		},
+		{
+			"Id": "Part",
+			"Name": "左目"
+		},
+		{
+			"Id": "Part2",
+			"Name": "右目"
+		}
+	]
+}

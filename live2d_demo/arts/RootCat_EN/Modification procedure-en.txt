@@ -1,0 +1,45 @@
+Here, we will describe how to modify the Live2D avatar.
+
+─────────────────────────────────────
+
+Software version used
+
+Live2D: 5.0.03 (free version)
+gimp: 2.10.36
+
+─────────────────────────────────────
+
+How to use Root Cat B's coloring.
+1. Open "Rootcat.cmo3" with Live2D.
+2. While clicking on "Root Cat B.psd", bring it to the top of the Live2D screen and release the click.
+3. When the "Please select a model to operate or import PSD" window appears, select "Root Cat (Model)".
+4. When the "Please select an existing PSD to operate or replace" window appears, select "Replace [rootcat.psd]".
+5. After confirming that the coloring has changed, click "File" -> "Export embedding file" -> "Export moc3 file" in the upper left of Live2D.
+6. When the “Export Settings” window appears, press “OK”.
+7. When the Save window appears, click Save, remembering where it will be saved.
+8. If the "The specified file already exists" window appears, click "Yes".
+9. When the "Do you want to overwrite rootcat.model3.json?" window appears, click "No".
+
+10. This completes the modification.
+To use it in VTube Studio, please follow the steps in "How to install it in VTube Studio" in "Instructions.txt".
+
+─────────────────────────────────────
+
+How to change color design
+1. Open “rootcat.xcf” in GIMP.
+Or open "Rootcat.PSD" with an app that can edit PSD.
+2. Live2D avatars have separate parts for each body.
+Change the color of each one.
+3. Once completed, export it in PSD format.
+4. Using the completed PSD format file, follow the steps starting from [1.] of "How to use Root Cat B's coloring."
+
+─────────────────────────────────────
+
+contact address
+If you have any problems with your avatar, please report it to the twitter DM below.
+
+x/twitter @curbine3
+
+─────────────────────────────────────
+
+curbine project 2012-2024

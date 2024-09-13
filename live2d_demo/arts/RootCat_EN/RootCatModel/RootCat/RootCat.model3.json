@@ -1,0 +1,23 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "RootCat.moc3",
+		"Textures": [
+			"RootCat.2048/texture_00.png"
+		],
+		"Physics": "RootCat.physics3.json",
+		"DisplayInfo": "RootCat.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}
