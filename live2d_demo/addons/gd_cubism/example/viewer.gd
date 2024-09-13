@@ -59,6 +59,7 @@ func setup(pathname: String):
 	cubism_model.anim_loop = false
 	if base_motion:
 		cubism_model.start_motion(base_motion["group"], base_motion["no"], GDCubismUserModel.PRIORITY_FORCE)
+	cubism_model
 
 	# Create and set a material for the Sprite2D node
 	var mat = CanvasItemMaterial.new()
