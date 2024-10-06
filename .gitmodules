@@ -1,0 +1,3 @@
+[submodule "beginner_godot4_dialogue"]
+	path = beginner_godot4_dialogue
+	url = https://github.com/nathanhoad/beginner_godot4_dialogue.git
